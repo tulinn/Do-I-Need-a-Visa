@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Vize_Gerekiyor_Mu_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9J-dh-bBz">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <string key="text">Vizeye ihtiyacım var mı?
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYY-wQ-MSc">
+                                <rect key="frame" x="16" y="58" width="568" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="yUM-Rw-AJZ"/>
+                                </constraints>
+                                <string key="text">Gideceğim yer şurası:
+
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdF-8V-3qr">
+                                <rect key="frame" x="210" y="430" width="181" height="42"/>
+                                <color key="backgroundColor" red="0.31824183608574202" green="0.66666666669999997" blue="0.21613673763272284" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="Utz-c8-eiE"/>
+                                    <constraint firstAttribute="height" constant="42" id="qPk-Kg-yxg"/>
+                                </constraints>
+                                <color key="tintColor" red="0.4188431634" green="0.66666666669999997" blue="0.33385329429999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Aratın!">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UtV-7S-oTb"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z84-q9-BwK">
+                                <rect key="frame" x="16" y="132" width="568" height="162"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P9J-dh-bBz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2Nl-Vl-0Mk"/>
+                            <constraint firstItem="P9J-dh-bBz" firstAttribute="leading" secondItem="uYY-wQ-MSc" secondAttribute="leading" id="2aj-qJ-ng6"/>
+                            <constraint firstItem="uYY-wQ-MSc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Epx-NR-nAJ"/>
+                            <constraint firstItem="uYY-wQ-MSc" firstAttribute="leading" secondItem="z84-q9-BwK" secondAttribute="leading" id="PF1-bM-Ahi"/>
+                            <constraint firstItem="P9J-dh-bBz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Sct-42-tpZ"/>
+                            <constraint firstItem="uYY-wQ-MSc" firstAttribute="trailing" secondItem="P9J-dh-bBz" secondAttribute="trailing" id="WLR-w3-pMA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GdF-8V-3qr" secondAttribute="bottom" constant="128" id="mVA-Tu-kFF"/>
+                            <constraint firstItem="uYY-wQ-MSc" firstAttribute="trailing" secondItem="z84-q9-BwK" secondAttribute="trailing" id="mqP-XR-a0n"/>
+                            <constraint firstItem="z84-q9-BwK" firstAttribute="top" secondItem="uYY-wQ-MSc" secondAttribute="bottom" constant="33" id="up3-0e-4KL"/>
+                            <constraint firstItem="GdF-8V-3qr" firstAttribute="centerX" secondItem="z84-q9-BwK" secondAttribute="centerX" id="yZx-aO-mcI"/>
+                            <constraint firstItem="uYY-wQ-MSc" firstAttribute="top" secondItem="P9J-dh-bBz" secondAttribute="bottom" constant="8" symbolic="YES" id="ysj-I4-qdm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countriesPicker" destination="z84-q9-BwK" id="jyG-nK-rjT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="k8O-Jc-LAC"/>
             </objects>
+            <point key="canvasLocation" x="139" y="139"/>
         </scene>
     </scenes>
 </document>
