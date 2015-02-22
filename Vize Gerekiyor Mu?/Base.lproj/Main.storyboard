@@ -37,8 +37,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z84-q9-BwK">
+                                <rect key="frame" x="16" y="132" width="568" height="162"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdF-8V-3qr">
-                                <rect key="frame" x="210" y="430" width="181" height="42"/>
+                                <rect key="frame" x="210" y="322" width="181" height="42"/>
                                 <color key="backgroundColor" red="0.31824183608574202" green="0.66666666669999997" blue="0.21613673763272284" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="181" id="Utz-c8-eiE"/>
@@ -50,12 +53,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UtV-7S-oTb"/>
+                                    <action selector="Search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6gE-zo-PrB"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z84-q9-BwK">
-                                <rect key="frame" x="16" y="132" width="568" height="162"/>
-                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="ASV-b4-5bc">
+                                <rect key="frame" x="50" y="469" width="300" height="111"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -65,7 +71,7 @@
                             <constraint firstItem="uYY-wQ-MSc" firstAttribute="leading" secondItem="z84-q9-BwK" secondAttribute="leading" id="PF1-bM-Ahi"/>
                             <constraint firstItem="P9J-dh-bBz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Sct-42-tpZ"/>
                             <constraint firstItem="uYY-wQ-MSc" firstAttribute="trailing" secondItem="P9J-dh-bBz" secondAttribute="trailing" id="WLR-w3-pMA"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GdF-8V-3qr" secondAttribute="bottom" constant="128" id="mVA-Tu-kFF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GdF-8V-3qr" secondAttribute="bottom" constant="236" id="mVA-Tu-kFF"/>
                             <constraint firstItem="uYY-wQ-MSc" firstAttribute="trailing" secondItem="z84-q9-BwK" secondAttribute="trailing" id="mqP-XR-a0n"/>
                             <constraint firstItem="z84-q9-BwK" firstAttribute="top" secondItem="uYY-wQ-MSc" secondAttribute="bottom" constant="33" id="up3-0e-4KL"/>
                             <constraint firstItem="GdF-8V-3qr" firstAttribute="centerX" secondItem="z84-q9-BwK" secondAttribute="centerX" id="yZx-aO-mcI"/>
@@ -73,7 +79,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countriesPicker" destination="z84-q9-BwK" id="jyG-nK-rjT"/>
+                        <outlet property="Result" destination="ASV-b4-5bc" id="bYQ-8C-vNe"/>
+                        <outlet property="countriesPicker" destination="z84-q9-BwK" id="dFk-CZ-3Xt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
