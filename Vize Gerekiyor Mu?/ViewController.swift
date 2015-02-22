@@ -9,7 +9,7 @@
 import UIKit
 
 /* Comment and Explain */
-class POSTReq {
+class REQ {
     // Instance Constants
     let URL: String = "http://vizegerekiyormu.com"
     
@@ -18,11 +18,11 @@ class POSTReq {
     var postString: String?
     var request: NSMutableURLRequest
     
-    init(route: String, postString: String?) {
+    init(route: String, postString: String?, HTTPMethod: String) {
         self.route = route
         self.postString = postString
         self.request = NSMutableURLRequest(URL: NSURL(string: URL + route)!)
-        self.request.HTTPMethod = "POST"
+        self.request.HTTPMethod = HTTPMethod
         self.request.HTTPBody = postString?.dataUsingEncoding(NSUTF8StringEncoding)
         println("inside init")
     }
@@ -46,65 +46,31 @@ class POSTReq {
     }
 }
 
-class GETReq {
-    let URL: String = "http://vizegerekiyormu.com"
-    
-    // Instance variables
-    var route: String
-    var postString: String?
-    var request: NSMutableURLRequest
-    
-    init(route: String, postString: String?) {
-        self.route = route
-        self.postString = postString
-        self.request = NSMutableURLRequest(URL: NSURL(string: URL + route)!)
-        self.request.HTTPMethod = "GET"
-        self.request.HTTPBody = postString?.dataUsingEncoding(NSUTF8StringEncoding)
-        println("inside init")
-    }
-    func makeRequest(callback: (NSString) -> Void) {
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(self.request, completionHandler: {(data, response, error) in
-            if error != nil {
-                println("error=\(error)")
-                return
-            }
-            
-            println("response = \(response)")
-            
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
-            
-            callback(responseString!)
-        })
-        task.resume()
-    }
-}
-
 class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBAction func Search(sender: UIButton!) {/* Comment and Explain */
         selected = self.countries[countriesPicker.selectedRowInComponent(0)]
-        let get_result_request = GETReq(route: ("/search/" + selected), postString: nil)
+        let get_result_request = REQ(route: ("/search/" + selected), postString: nil, HTTPMethod: "GET")
         get_result_request.makeRequest(getResult)
     }
     @IBOutlet weak var countriesPicker: UIPickerView!     /* Comment and Explain */
+    
+    @IBOutlet weak var SearchButton: UIButton!
     
     @IBOutlet weak var Result: UILabel!
     
     func getResult(search: NSString) {
         result = search as String
+        Result.text = result
         //var Result:UILabel = UILabel(frame: CGRectMake(10,100, 300, 40));
         //Result.preferredMaxLayoutWidth = self.view.bounds.width
         //Result.textAlignment = NSTextAlignment.Center;
         //Result.font = UIFont.systemFontOfSize(16.0);
-        Result.text = result
         //self.view.addSubview(Result);
-        
         //Result.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //Result.numberOfLines = 0
     }
     
-    var theCountries: Array<String> = []
     var countries: Array<String> = []
     var countriesString: String = ""
     var selected: String = ""
@@ -121,14 +87,17 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     
     /* Execute on view load */
     override func viewDidAppear(animated: Bool) {
-        let get_countries_request = POSTReq(route: "/countries", postString: nil)
+        let get_countries_request = REQ(route: "/countries", postString: nil, HTTPMethod: "POST")
         println("inside viewdidappear")
         get_countries_request.makeRequest(setCountryPicker)
+        SearchButton.layer.borderWidth = 3
+        SearchButton.layer.borderColor = UIColor.greenColor().CGColor
         //Result.frame = CGRectMake(50, 150, 200, 21)
         //Result.backgroundColor = UIColor.orangeColor()
         //Result.textColor = UIColor.blackColor()
         //Result.textAlignment = NSTextAlignment.Center
         //Result.numberOfLines = 0;
+        
     }
     
     //MARK: Delegates
